@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: laravel-cache
+spec:
+  containers:
+  - name: laravel-cache
+    image: redis:latest

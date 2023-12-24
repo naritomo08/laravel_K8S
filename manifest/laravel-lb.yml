@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-service-lb
+spec:
+  selector:
+    app: php
+  ports:
+  - name: webserver
+    protocol: TCP
+    port: 80
+  type: LoadBalancer
+

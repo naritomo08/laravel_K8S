@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: laravel-db
+spec:
+  containers:
+  - name: laravel-db
+    image: mysql:latest
+    env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: password
+      - name: MYSQL_DATABASE
+        value: laravel
+      - name: MYSQL_USER
+        value: laravel
+      - name: MYSQL_PASSWORD
+        value: password
+      - name: TZ
+        value: 'Asia/Tokyo'

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-php
+spec:
+  replicas: 1
+  selector:           # これは deployment - pod 対応用
+    matchLabels:
+      app: php
+  template:           # ここからポッド・テンプレート
+    metadata:
+      labels:
+        app: php      # ポッドのラベル
+    spec:
+      containers:
+      - name: laravel-php
+        image: <docker hubユーザー名>/laravel:0.1
+        env:
+        - name: XDEBUG_CONFIG
+          value: client_host=host.docker.internal
+        - name: SESSION_DRIVER
+          value: redis
+        - name: SESSION_LIFETIME
+          value: '120'
